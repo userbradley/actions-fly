@@ -1,14 +1,19 @@
 name: Fly Build and Deploy
 description: Builds a docker image and deploys it on fly
 author: userbradley
+branding:
+  icon: align-justify
+  color: blue
+
 
 inputs:
     flyToken:
         description: Fly application token
-        required: true 
+        required: true
     configFile:
         description: Name of the Config File to deploy with
-        required: true
+        required: false
+        default: "fly.toml"
     dockerfileName:
       description: Name of the Dockerfile to build from
       required: false
