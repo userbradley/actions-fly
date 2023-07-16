@@ -1,0 +1,31 @@
+name: Fly Build and Deploy
+description: Builds a docker image and deploys it on fly
+author: userbradley
+
+inputs:
+    flyToken:
+        description: Fly application token
+        required: true 
+    configFile:
+        description: Name of the Config File to deploy with
+        required: true
+    dockerfileName:
+      description: Name of the Dockerfile to build from
+      required: false
+      default: "Dockerfile"
+
+runs:
+    using: composite
+    steps:
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: Login to Fly Registry
+        uses: docker/login-action@v2
+        with:
+          registry: registry.fly.io
+          username: x
+          password: ${{ inputs.flyToken }}
+      - name: Deploy to Fly
+        shell: bash
+        run: flyctl deploy --config ${{ inputs.configFile }} --dockerfile ${{ inputs.dockerfileName }} --local-only --push --detach --auto-confirm
+        env:
+          FLY_ACCESS_TOKEN: ${{ inputs.flyToken }}
