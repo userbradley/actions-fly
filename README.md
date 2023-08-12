@@ -1,6 +1,6 @@
-# Fly Build and Deploy actions
+# GitHub Action: Fly Build and Deploy
 
-Simple action to Build and deploy a Docker file on Fly, using the GitHub actions runner Docker engine.
+Builds a docker image and deploys it on fly
 
 ## Quickstart
 
@@ -22,8 +22,17 @@ jobs:
         with:
           flyToken: ${{ secrets.FLY_ACCESS_TOKEN_DEV }}
 ```
+## Inputs
 
-## Full Example
+| Name | Description | Required | Default Value |
+|------|-------------|----------|---------------|
+| `flyToken` | Fly application token | `true` | `Null` |
+| `configFile` | Name of the Config File to deploy with | `false` | `fly.toml` |
+| `dockerfileName` | Name of the Dockerfile to build from | `false` | `Dockerfile` |
+
+## Examples
+
+### Full Example
 
 ```yaml
 name: Build and Deploy
@@ -48,16 +57,5 @@ jobs:
           # Name of the Dockerfile in the Repo.
           dockerfileName: "dev.Dockerfile"
 ```
-
-
-## Inputs
-
-| Input Name       | Required | Default Value                                                   |
-|------------------|----------|-----------------------------------------------------------------|
-| `flyToken`       | `true`   | `null` - You need to provide this as a Repository or Org secret |
-| `configFile`     | `false`  | `fly.toml`                                                      |
-| `dockerfileName` | `false`  | `Dockerfile`                                                    |
-
-## Example Repo
-
-[userbradley/documentation.breadnet.co.uk](https://github.com/userbradley/documentation.breadnet.co.uk/blob/main/.github/workflows/dev.yaml)
+---
+Built with ❤️
