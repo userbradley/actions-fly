@@ -10,7 +10,7 @@ jobs:
     name: Build and Deploy
     steps:
       - name: Git Clone
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Build and deploy
         uses: userbradley/actions-fly@${{version}}
         with:

@@ -16,7 +16,7 @@ jobs:
     name: Build and Deploy
     steps:
       - name: Git Clone
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Build and deploy
         uses: userbradley/actions-fly@v1.1.0
         with:
@@ -26,9 +26,9 @@ jobs:
 
 | Name | Description | Required | Default Value |
 |------|-------------|----------|---------------|
-| `dockerfileName` | Name of the Dockerfile to build from | `false` | `Dockerfile` |
 | `flyToken` | Fly application token | `true` | `Null` |
 | `configFile` | Name of the Config File to deploy with | `false` | `fly.toml` |
+| `dockerfileName` | Name of the Dockerfile to build from | `false` | `Dockerfile` |
 
 ## Examples
 
@@ -46,7 +46,7 @@ jobs:
     name: Build and Deploy
     steps:
       - name: Git Clone
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Build and deploy
         uses: userbradley/actions-fly@v1.1.0
         with:
@@ -60,3 +60,4 @@ jobs:
 
 ---
 Built with ❤️
+
