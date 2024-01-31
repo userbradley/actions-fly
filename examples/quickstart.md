@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Git Clone
         uses: actions/checkout@v3
-      - name: Build and deploy 
+      - name: Build and deploy
         uses: userbradley/actions-fly@${{version}}
         with:
           flyToken: ${{ secrets.FLY_ACCESS_TOKEN_DEV }}
