@@ -18,7 +18,7 @@ jobs:
       - name: Git Clone
         uses: actions/checkout@v3
       - name: Build and deploy
-        uses: userbradley/actions-fly@v1.0.0
+        uses: userbradley/actions-fly@v1.1.0
         with:
           flyToken: ${{ secrets.FLY_ACCESS_TOKEN_DEV }}
 ```
@@ -26,9 +26,9 @@ jobs:
 
 | Name | Description | Required | Default Value |
 |------|-------------|----------|---------------|
+| `dockerfileName` | Name of the Dockerfile to build from | `false` | `Dockerfile` |
 | `flyToken` | Fly application token | `true` | `Null` |
 | `configFile` | Name of the Config File to deploy with | `false` | `fly.toml` |
-| `dockerfileName` | Name of the Dockerfile to build from | `false` | `Dockerfile` |
 
 ## Examples
 
@@ -48,7 +48,7 @@ jobs:
       - name: Git Clone
         uses: actions/checkout@v3
       - name: Build and deploy
-        uses: userbradley/actions-fly@v1.0.0
+        uses: userbradley/actions-fly@v1.1.0
         with:
           # Set this to your account or application token
           flyToken: ${{ secrets.FLY_ACCESS_TOKEN_DEV }}
@@ -57,5 +57,6 @@ jobs:
           # Name of the Dockerfile in the Repo.
           dockerfileName: "dev.Dockerfile"
 ```
+
 ---
 Built with ❤️
